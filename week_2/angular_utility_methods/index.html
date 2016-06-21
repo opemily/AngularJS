@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-app="MyApp">
+  <div ng-controller="MyController as myCtrl">
+  <p ng-show="myCtrl.toggle"> {{ myCtrl.firstName }} </p>
+  <p ng-show="myCtrl.toggle"> {{ myCtrl.lastName }} </p>
+
+  <button ng-show="myCtrl.toggle" ng-click="myCtrl.editName()"> Edit </button>
+
+  <input type="text" value={{myCtrl.firstName}} ng-model="myCtrl.newFirstName" ng-hide="myCtrl.toggle">
+  <input type="text" value={{myCtrl.lastName}} ng-model="myCtrl.newLastName" ng-hide="myCtrl.toggle">
+
+  <button ng-hide="myCtrl.toggle" ng-click="myCtrl.save()">Done</button>
+  <button ng-hide="myCtrl.toggle" ng-click="myCtrl.cancel()">Cancel</button>
+  </div> <!-- ng-controller -->
+</body>
+</html>

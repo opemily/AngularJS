@@ -1,0 +1,21 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body ng-app="MyApp">
+    <div ng-controller="MyController as myCtrl">
+      <h1 ng-bind="myCtrl.myName"></h1>
+      <h3 ng-bind="myCtrl.age"></h3>
+      <h3> {{ myCtrl.job }} </h3>
+
+      <div ng-repeat="name in myCtrl.simpleArray">
+        {{name}}
+      </div>
+    </div>
+  </body>
+  </html>

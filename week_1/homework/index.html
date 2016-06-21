@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> UI Theme Picker </title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body ng-app="MyApp">
+
+  <div ng-controller="MyController as myCtrl">
+    <input type="radio"
+           name="color"
+           ng-value="myCtrl.red"
+           ng-model="myCtrl.colorSelected"> Red
+
+      <input type="radio"
+           name="color"
+           ng-value="myCtrl.yellow"
+           ng-model="myCtrl.colorSelected">Yellow
+
+      <input type="radio"
+           name="color"
+           ng-value="myCtrl.blue"
+           ng-model="myCtrl.colorSelected">Blue
+
+      <input type="radio"
+           name="color"
+           ng-value="myCtrl.green"
+           ng-model="myCtrl.colorSelected">Green
+
+       <input type="radio"
+           name="color"
+           ng-value="myCtrl.purple"
+           ng-model="myCtrl.colorSelected">Purple
+
+        <div ng-class="myCtrl.colorName"> {{myCtrl.colorSelected.description}} </div>
+
+        <div ng-class="myCtrl.colorType"> {{myCtrl.colorSelected.description2}} </div>
+
+  </div> <!-- ng-controller -->
+  
+</body>
+</html>
