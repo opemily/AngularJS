@@ -7,9 +7,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
   <script src="js/main.js"></script>
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" ng-controller="MyController as myCtrl" ng-class="myCtrl.colorSelected.bodystyle">
 
-  <div ng-controller="MyController as myCtrl">
+  <div>
     <input type="radio"
            name="color"
            ng-value="myCtrl.red"
@@ -35,11 +35,11 @@
            ng-value="myCtrl.purple"
            ng-model="myCtrl.colorSelected">Purple
 
-        <div ng-class="myCtrl.colorName"> {{myCtrl.colorSelected.description}} </div>
+        <div ng-class="myCtrl.colorSelected.firstdiv"> {{myCtrl.colorSelected.description}} </div>
 
-        <div ng-class="myCtrl.colorType"> {{myCtrl.colorSelected.description2}} </div>
+        <div ng-class="myCtrl.colorSelected.seconddiv"> {{myCtrl.colorSelected.description2}} </div>
 
-  </div> <!-- ng-controller -->
+  </div>
   
 </body>
 </html>

@@ -1,0 +1,78 @@
+/* CSS Red */
+.red-body {
+  background-color: #FF0000;
+}
+
+.red-first-div {
+  background-color: #FF4C4C;
+  color: #7F0000;
+}
+
+.red-second-div {
+  background-color: #7F2626;
+  color: #CC0000;
+}
+
+
+/* CSS Blue */
+.blue-body {
+  background-color: #0000FF;
+}
+
+.blue-first-div {
+  background-color: #4C4DFF;
+  color: #00007F;
+}
+
+.blue-second-div {
+  background-color: #3D3DCC;
+  color: #04084C;
+}
+
+
+/* CSS Yellow */
+.yellow-body {
+  background-color: #CCC213;
+}
+
+.yellow-first-div {
+  background-color: #CCC550;
+  color: #4C4907;
+}
+
+.yellow-second-div {
+  background-color: #95903B;
+  color: #7F790C;
+}
+
+
+/* CSS Green */
+.green-body {
+  background-color: #127F12;
+}
+
+.green-first-div {
+  background-color: #429542;
+  color: #1ECC1D;
+}
+
+.green-second-div {
+  background-color: #5BCC5A;
+  color: #0B4C0B;
+}
+
+
+/* CSS Purple */
+.purple-body {
+  background-color: #9610CC;
+}
+
+.purple-first-div {
+  background-color: #A84ECC;
+  color: #38064C;
+}
+
+.purple-second-div {
+  background-color: #7A3995;
+  color: #5E0A7F;
+}
