@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController as myCtrl">
+
+  <div id="display-folders">
+    <h3> Folders </h3>
+    <input type="checkbox" ng-model="myCtrl.checked"> Display All
+    <div ng-if="myCtrl.checked">
+      <div ng-repeat="directory in myCtrl.directories">
+        <h4>{{directory.folderName}}</h4>
+        <ul>
+          <li ng-repeat="file in directory.files"> {{file}}</li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- #display-folders -->
+
+  <div id="new-file">
+    <h4> Add New File </h4>
+    <span> File Name: </span> 
+      <input type="text" ng-model="myCtrl.newFile">
+      <span ng-repeat="directory in myCtrl.directories"> 
+        <input type="radio" ng-value="directory.files" ng-model="myCtrl.selectedFolder"> {{directory.folderName}}
+      </span> 
+    <button ng-click="myCtrl.addFile()">Add File</button>
+  </div> <!-- #new-file -->
+
+  <div id="todo-list" ng-controller="ToDoList as ToDo">
+    <h3> To Do List</h3>
+    <ol>
+      <li ng-repeat="item in ToDo.list" ng-class="item.priority"> {{item.item}} </li>
+    </ol>
+
+    <span> List Item </span>
+      <input type="text" ng-model="ToDo.listItem">
+    <span> Priority: </span>
+      <input type="radio" value="high" ng-model="ToDo.priority"> High  
+      <input type="radio" value="medium" ng-model="ToDo.prority"> Medium
+      <input type="radio" value="low" ng-model="ToDo.priority"> Low
+      <button ng-click="ToDo.new()"> test </button>
+
+
+  </div> <!-- #todo-list -->
+</body>
+</html>
