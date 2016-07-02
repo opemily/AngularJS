@@ -1,0 +1,15 @@
+Looking good Emily, great job. Some notes below:
+
+The Expand/Collapse checkbox should only expand/collapse the files, but the folders should still be visible.
+
+There's a small bug with the radio buttons, it let's me choose medium and high at the same time.
+
+Typically we don't give html elements id's in an angular app.  If we do it for a purpose, so if you're not using them feel free to take them out.
+
+here's a question for you... Currently, out todo's have two properties (name and priority), but what if the had 20?30?40? properties....  Can we change
+
+	        self.list.push({item: self.listItem, priority: self.priority});
+
+	   so that we don't define each property manually? think about your ng-model.
+
+The Folders section is done perfectly!
