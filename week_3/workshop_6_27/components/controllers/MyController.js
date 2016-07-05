@@ -9,7 +9,6 @@ myModule.controller('MyController', function (StudentCreator) {
     self.Prital = new StudentCreator('Prital Shah');
     self.Renee = new StudentCreator('Renee Lightner');
 
-
     self.students.push(self.Bea, self.Emily, self.Jeffrey, self.Nicolas, self.Prital, self.Renee);
 
 });

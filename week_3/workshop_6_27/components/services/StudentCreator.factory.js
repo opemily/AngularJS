@@ -19,6 +19,9 @@ myModule.factory('StudentCreator', function (Assignments,FindAverage, FindGrade,
     createStudent.prototype.delete = function (assignment) {
         var index = this.assignments.indexOf(assignment);
         this.assignments.splice(index, 1);
+        this.average = FindAverage.findAverage(this.assignments);
+        this.grade = FindGrade.findGrade(this.average);
+        this.passed = PassOrFail.passOrFail(this.grade);
     };
 
     return createStudent;
