@@ -2,16 +2,14 @@ var myModule = angular.module('MyApp');
 myModule.controller('MyController', function (StudentCreator) {
   var self = this;
     self.students = [];
+    self.Bea = new StudentCreator('Bea Kirk');
     self.Emily = new StudentCreator('Emily Oppenheimer');
-    self.students.push(self.Emily);
+    self.Jeffrey = new StudentCreator('Jeffrey Carlson');
+    self.Nicolas = new StudentCreator('Nicolas Favaro');
+    self.Prital = new StudentCreator('Prital Shah');
+    self.Renee = new StudentCreator('Renee Lightner');
 
-    // self.addNew = function () {
-    //     self.studentSelected.assignments.push({name: self.newAssignment, grade: self.newGrade});
-    // };
 
-    self.delete = function (assignment) {
-        var index = self.studentSelected.assignments.indexOf(assignment);
-        self.studentSelected.assignments.splice(index, 1);
-    };
+    self.students.push(self.Bea, self.Emily, self.Jeffrey, self.Nicolas, self.Prital, self.Renee);
 
 });

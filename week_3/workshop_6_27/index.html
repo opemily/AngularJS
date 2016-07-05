@@ -7,6 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
   <script src="app.js"></script>
   <script src="components/controllers/MyController.js"></script>
+  <script src="components/services/Assignments.value.js"></script>
   <script src="components/services/FindAverage.service.js"></script>
   <script src="components/services/FindGrade.service.js"></script>
   <script src="components/services/PassOrFail.service.js"></script>
@@ -15,16 +16,18 @@
 <body ng-app="MyApp" ng-controller="MyController as myCtrl">
 
 <div>
+  <h3> Select A Student</h3>
   <select ng-model="myCtrl.studentSelected" ng-options="student.name for student in myCtrl.students">
   <option value="" hidden selected> Select a Student</option>
   </select>
 </div>
 
-<div>
+<div ng-if="myCtrl.studentSelected">
+  <h2> {{myCtrl.studentSelected.name}}</h2>
   <h3> Enter New Assignment</h3>
   <input type="text" ng-model="myCtrl.newAssignment">
-  <input type="text" ng-model="myCtrl.newGrade">
-  <button ng-click="myCtrl.studentSelected.addNew(myCtrl.newAssignment, myCtrl.newGrade)"> Add Assignment</button>
+  <input type="number" ng-model="myCtrl.newGrade">
+  <button ng-click="myCtrl.studentSelected.addNew(myCtrl.studentSelected, myCtrl.newAssignment, myCtrl.newGrade)"> Add Assignment</button>
 
   <h3> Past Assignments </h3>
   <table>
@@ -36,7 +39,7 @@
     <tr ng-repeat="assignment in myCtrl.studentSelected.assignments">
       <td>{{assignment.name}}</td>
       <td>{{assignment.grade}}</td>
-      <td> <button ng-click="myCtrl.delete(assignment)"> Delete</button></td>
+      <td> <button ng-click="myCtrl.studentSelected.delete(assignment)"> Delete</button></td>
     </tr>
   </table>
 
@@ -44,15 +47,15 @@
   <table>
     <tr>
       <td> Average </td>
-      <td> {{myCtrl.studentSelected.getAverage(myCtrl.studentSelected.assignments)}}</td>
+      <td> {{myCtrl.studentSelected.average}}</td>
     </tr>
     <tr>
       <td> Grade </td>
-      <td> {{myCtrl.studentSelected.getGrade(myCtrl.studentSelected.average)}}</td>
+      <td> {{myCtrl.studentSelected.grade}}</td>
     </tr>
     <tr>
       <td> Pass </td>
-      <td>{{myCtrl.studentSelected.getPass(myCtrl.studentSelected.grade)}}</td>
+      <td>{{myCtrl.studentSelected.passed}}</td>
     </tr>
   </table>
 </div>
