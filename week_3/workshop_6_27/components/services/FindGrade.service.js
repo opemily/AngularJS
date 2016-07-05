@@ -3,9 +3,9 @@ var myModule = angular.module('MyApp');
 myModule.service('FindGrade', function () {
   var self = this;
     self.findGrade = function (average) {
-        if (average > 90) {
+        if (average >= 90) {
             return "A";
-        } else if (average <= 90 && average > 80) {
+        } else if (average < 90 && average > 80) {
             return "B";
         } else if (average <= 80 && average > 70) {
             return "B";
