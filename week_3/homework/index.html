@@ -10,8 +10,14 @@
   <script></script>
 </head>
 <body ng-app="MyApp" ng-controller="MyController as myCtrl">
-<h1> Music Playlist</h1>
-<h3> User Information</h3>
+  <h1> Music Playlist</h1>
+  <h3> User Information</h3>
+  <label>User Name:</label>
+  <input type="text" ng-model="myCtrl.selectedUser">
+  <label>Age:</label>
+  <input type="number" ng-model="myCtrl.age">
+
+  <label for=""></label><input type="radio">
   
 </body>
 </html>

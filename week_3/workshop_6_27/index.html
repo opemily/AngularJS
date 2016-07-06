@@ -15,50 +15,49 @@
 </head>
 <body ng-app="MyApp" ng-controller="MyController as myCtrl">
 
-<div>
-  <h3> Select A Student</h3>
-  <select ng-model="myCtrl.studentSelected" ng-options="student.name for student in myCtrl.students">
-  <option value="" hidden selected> Select a Student</option>
-  </select>
+  <div>
+    <h3> Select A Student</h3>
+    <select ng-model="myCtrl.studentSelected" ng-options="student.name for student in myCtrl.students">
+    <option value="" hidden selected> Select a Student</option>
+    </select>
+  </div>
+
+  <div ng-if="myCtrl.studentSelected">
+    <h2> {{myCtrl.studentSelected.name}}</h2>
+    <h3> Enter New Assignment</h3>
+    <input type="text" placeholder="Enter Assignment"ng-model="myCtrl.newAssignment">
+    <input type="number" placeholder="Enter Grade (Number Only)" ng-model="myCtrl.newGrade">
+    <button ng-click="myCtrl.studentSelected.addNew(myCtrl.newAssignment, myCtrl.newGrade)"> Add Assignment</button>
+
+    <h3> Past Assignments </h3>
+    <table>
+      <tr>
+        <th>Assignment Name</th>
+        <th>Grade</th>
+        <th>Delete Assignment</th>
+      </tr>
+      <tr ng-repeat="assignment in myCtrl.studentSelected.assignments">
+        <td>{{assignment.name}}</td>
+        <td>{{assignment.grade}}</td>
+        <td> <button ng-click="myCtrl.studentSelected.delete(assignment)"> Delete</button></td>
+      </tr>
+    </table>
+
+    <h3> Stats </h3>
+    <table>
+      <tr>
+        <td> Average </td>
+        <td> {{myCtrl.studentSelected.average}}</td>
+      </tr>
+      <tr>
+        <td> Grade </td>
+        <td> {{myCtrl.studentSelected.grade}}</td>
+      </tr>
+      <tr>
+        <td> Pass </td>
+        <td>{{myCtrl.studentSelected.passed}}</td>
+      </tr>
+    </table>
 </div>
-
-<div ng-if="myCtrl.studentSelected">
-  <h2> {{myCtrl.studentSelected.name}}</h2>
-  <h3> Enter New Assignment</h3>
-  <input type="text" placeholder="Enter Assignment"ng-model="myCtrl.newAssignment">
-  <input type="number" placeholder="Enter Grade (Number Only)" ng-model="myCtrl.newGrade">
-  <button ng-click="myCtrl.studentSelected.addNew(myCtrl.studentSelected, myCtrl.newAssignment, myCtrl.newGrade)"> Add Assignment</button>
-
-  <h3> Past Assignments </h3>
-  <table>
-    <tr>
-      <th>Assignment Name</th>
-      <th>Grade</th>
-      <th>Delete Assignment</th>
-    </tr>
-    <tr ng-repeat="assignment in myCtrl.studentSelected.assignments">
-      <td>{{assignment.name}}</td>
-      <td>{{assignment.grade}}</td>
-      <td> <button ng-click="myCtrl.studentSelected.delete(assignment)"> Delete</button></td>
-    </tr>
-  </table>
-
-  <h3> Stats </h3>
-  <table>
-    <tr>
-      <td> Average </td>
-      <td> {{myCtrl.studentSelected.average}}</td>
-    </tr>
-    <tr>
-      <td> Grade </td>
-      <td> {{myCtrl.studentSelected.grade}}</td>
-    </tr>
-    <tr>
-      <td> Pass </td>
-      <td>{{myCtrl.studentSelected.passed}}</td>
-    </tr>
-  </table>
-</div>
-  
 </body>
 </html>

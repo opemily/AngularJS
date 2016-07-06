@@ -1,6 +1,6 @@
 var myModule = angular.module('MyApp');
 
-myModule.factory('StudentCreator', function (Assignments,FindAverage, FindGrade, PassOrFail) {
+myModule.factory('StudentCreator', function (Assignments, FindAverage, FindGrade, PassOrFail) {
     function createStudent(name) {
         this.name = name;
         this.assignments = angular.copy(Assignments);
