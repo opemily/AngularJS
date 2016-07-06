@@ -5,13 +5,11 @@ myModule.service('FindGrade', function () {
     self.findGrade = function (average) {
         if (average >= 90) {
             return "A";
-        } else if (average < 90 && average > 80) {
+        } else if (average < 90 && average >= 80) {
             return "B";
-        } else if (average <= 80 && average > 70) {
-            return "B";
-        } else if (average <= 70 && average > 60) {
+        } else if (average <= 80 && average >= 70) {
             return "C";
-        } else if (average <= 60 && average > 50) {
+        } else if (average <= 70 && average >= 60) {
             return "D";
         } else {
             return "F";

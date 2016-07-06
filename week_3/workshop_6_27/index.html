@@ -25,7 +25,7 @@
   <div ng-if="myCtrl.studentSelected">
     <h2> {{myCtrl.studentSelected.name}}</h2>
     <h3> Enter New Assignment</h3>
-    <input type="text" placeholder="Enter Assignment"ng-model="myCtrl.newAssignment">
+    <input type="text" placeholder="Enter Assignment" ng-model="myCtrl.newAssignment">
     <input type="number" placeholder="Enter Grade (Number Only)" ng-model="myCtrl.newGrade">
     <button ng-click="myCtrl.studentSelected.addNew(myCtrl.newAssignment, myCtrl.newGrade)"> Add Assignment</button>
 
@@ -47,15 +47,15 @@
     <table>
       <tr>
         <td> Average </td>
-        <td>{{myCtrl.studentSelected.average | FindAverage}}</td>
+        <td>{{myCtrl.studentSelected.average}}</td>
       </tr>
       <tr>
         <td> Grade </td>
-        <td> {{myCtrl.grade}}</td>
+        <td> {{myCtrl.studentSelected.grade}}</td>
       </tr>
       <tr>
         <td> Pass </td>
-        <td>{{myCtrl.passed}}</td>
+        <td>{{myCtrl.studentSelected.passed}}</td>
       </tr>
     </table>
 </div>
