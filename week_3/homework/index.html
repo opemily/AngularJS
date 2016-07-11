@@ -10,14 +10,26 @@
   <script></script>
 </head>
 <body ng-app="MyApp" ng-controller="MyController as myCtrl">
-  <h1> Music Playlist</h1>
-  <h3> User Information</h3>
-  <label>User Name: <input type="text" ng-model="myCtrl.selectedUser"></label>
-  <label>Age:<input type="number" ng-model="myCtrl.age"></label>
-  
+  <h1>Music Playlist</h1>
 
-  <label><input type="radio"> Clean</label>
-  <label><input type="radio"> Explicit</label>
+  <h3>User Information</h3>
+    <label>User Name: <input type="text" ng-model="myCtrl.user"></label>
+    <label>Age:<input type="number" ng-model="myCtrl.age"></label>
+  
+  <h3>Allow Explicit Content</h3>
+    <label><input type="radio" name="explicit" ng-value="true" ng-model="myCtrl.filterOn" ng-change="myCtrl.filterSongs()">Clean</label>
+    <label><input type="radio" name="explicit" ng-value="false" ng-model="myCtrl.filterOn" ng-disabled="myCtrl.underAge(myCtrl.age)" ng-change="myCtrl.filterSongs()"> Explicit</label>
+
+  <h3>Genre</h3>
+    <ul>
+      <li ng-repeat="genre in myCtrl.genres"><a href="" ng-click="myCtrl.selectGenre(genre)"> {{genre.genre}}</a></li>
+    </ul>
+
+  <h3>Select Songs</h3>
+    <label ng-repeat="song in myCtrl.selectedGenre.songs | filter: myCtrl.songFilter"><input type="checkbox"> {{song.artist}} - {{song.title}} </label>
+
+  <button> Submit Playlist </button>
+
   
 </body>
 </html>
