@@ -41,11 +41,13 @@ myModule.controller('MyController', function () {
             {artist: 'Three Days Grace', title: 'I Hate Everything About You', explicit: false}]};
     self.genres.push(self.pop, self.rap, self.rock);
 
-    self.userPlaylist = {
-        user: self.user,
-        age: self.age,
-        songs: []
-    };
+    self.userPlaylist = {};
+    self.playlist = [];
+
+    self. updateUser = function () {
+        self.userPlaylist = self.userName;
+        self.userPlayist.age = self.userAge;
+    }
     self.underAge = function (age) {
         if (age < 18) {
             return true;
@@ -64,6 +66,23 @@ myModule.controller('MyController', function () {
       } else {
         self.songFilter = undefined;
       }
+    };
+
+    self.toggleSelection = function (song) {
+        var index = self.playlist.indexOf(song);
+        if (index > -1) {
+            self.playlist.splice(index, 1);
+        } else {
+            self.playlist.push(song);
+        }
+    }
+
+    self.savePlaylist = function () {
+        self.userPlaylist.name = self.userName;
+        self.userPlaylist.age = self.userAge;
+        self.userPlaylist.songs = self.playlist;
+
+        console.log(self.userPlaylist);
     }
 
 });

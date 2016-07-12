@@ -13,8 +13,8 @@
   <h1>Music Playlist</h1>
 
   <h3>User Information</h3>
-    <label>User Name: <input type="text" ng-model="myCtrl.user"></label>
-    <label>Age:<input type="number" ng-model="myCtrl.age"></label>
+    <label>User Name: <input type="text" ng-model="myCtrl.userName"></label>
+    <label>Age:<input type="number" ng-model="myCtrl.userAge"></label>
   
   <h3>Allow Explicit Content</h3>
     <label><input type="radio" name="explicit" ng-value="true" ng-model="myCtrl.filterOn" ng-change="myCtrl.filterSongs()">Clean</label>
@@ -26,9 +26,9 @@
     </ul>
 
   <h3>Select Songs</h3>
-    <label ng-repeat="song in myCtrl.selectedGenre.songs | filter: myCtrl.songFilter"><input type="checkbox"> {{song.artist}} - {{song.title}} </label>
+    <label ng-repeat="song in myCtrl.selectedGenre.songs | filter: myCtrl.songFilter"><input type="checkbox" ng-value="song" ng-checked="myCtrl.userPlaylist.songs.indexOf(song) > -1" ng-click="myCtrl.toggleSelection(song)"> {{song.artist}} - {{song.title}} </label>
 
-  <button> Submit Playlist </button>
+  <button ng-click="myCtrl.savePlaylist()"> Submit Playlist </button>
 
   
 </body>
