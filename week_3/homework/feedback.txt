@@ -1,0 +1,13 @@
+Nicely done Em.  Some notes below.
+
+- I think you meant to do this, but I'd move all those genres out of the controller.
+- The filter songs functionality could go in the controller, but all those other functions should probably be moved into a factory.
+- For this assignment the thing we're interested in the most is the final playlist so to generate this we have two options.
+	a) we can maintain the playlist as the user is selecting/deselecting songs
+	b) we can generate it at the end
+
+	in this case option b makes things a little easier.
+
+I think you're on the right track, just need to move things out of the controller.  Take a look at my solutions if you want to see an alternative approach.
+
+Great Job
