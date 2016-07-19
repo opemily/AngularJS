@@ -6,9 +6,14 @@
   <link rel="stylesheet" href="assets/CSS/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
   <script src="app.js"></script>
+  <script src="components/services/Pop.value.js"></script>
+  <script src="components/services/Rap.value.js"></script>
+  <script src="components/services/Rock.value.js"></script>
+  <script src="components/services/Genres.value.js"></script>
+  <script src="components/services/SongFilter.service.js"></script>
+  <script src="components/services/ToggleSelection.service.js"></script>
+  <script src="components/services/UserPlaylist.factory.js"></script>
   <script src="components/controllers/MyController.js"></script>
-  <script></script>
-</head>
 <body ng-app="MyApp" ng-controller="MyController as myCtrl">
   <h1>Music Playlist</h1>
 
@@ -17,12 +22,12 @@
     <label>Age:<input type="number" ng-model="myCtrl.userAge"></label>
   
   <h3>Allow Explicit Content</h3>
-    <label><input type="radio" name="explicit" ng-value="true" ng-model="myCtrl.filterOn" ng-change="myCtrl.filterSongs()">Clean</label>
+    <label><input type="radio" name="explicit" ng-value="true" ng-model="myCtrl.filterOn" ng-change="myCtrl.SongFilter.filterSongs()">Clean</label>
     <label><input type="radio" name="explicit" ng-value="false" ng-model="myCtrl.filterOn" ng-disabled="myCtrl.underAge(myCtrl.age)" ng-change="myCtrl.filterSongs()"> Explicit</label>
 
   <h3>Genre</h3>
     <ul>
-      <li ng-repeat="genre in myCtrl.genres"><a href="" ng-click="myCtrl.selectGenre(genre)"> {{genre.genre}}</a></li>
+      <li ng-repeat="genre in myCtrl.Genres.genres"><a href="" ng-click="myCtrl.selectGenre(genre)"> {{genre.genre}}</a></li>
     </ul>
 
   <h3>Select Songs</h3>
